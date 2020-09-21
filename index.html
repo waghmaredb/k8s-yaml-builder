@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="bulma.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/3.13.1/js-yaml.min.js" integrity="sha256-ry6nlLQ1JmRl5RUPQ4eSuaSp/rGNPvl144WHHs7BiNE=" crossorigin="anonymous"></script>
-	<title>YAML Builder for Kubernetes</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/3.13.1/js-yaml.min.js"
+    integrity="sha256-ry6nlLQ1JmRl5RUPQ4eSuaSp/rGNPvl144WHHs7BiNE=" crossorigin="anonymous"></script>
+  <title>YAML Builder for Kuber netes</title>
   <style type="text/css">
-    .sticky { position: sticky; top: 10px; }
+    .sticky {
+      position: sticky;
+      top: 10px;
+    }
   </style>
 </head>
+
 <body>
 
   <nav class="navbar" role="navigation" aria-label="main navigation">
@@ -17,14 +23,15 @@
       <div class="navbar-item">
         <h1 class="title">YAML Builder for Kubernetes</h1>
       </div>
-  
-      <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+
+      <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
+        data-target="navbarBasicExample">
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
       </a>
     </div>
-  
+
     <div id="navbarBasicExample" class="navbar-menu">
       <div class="navbar-start">
         <div class="navbar-item has-background-light">
@@ -34,8 +41,8 @@
           <a href="bc.html">BuildConfig</a>
         </div>
       </div>
-  
-  
+
+
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="buttons">
@@ -51,10 +58,12 @@
   <section class="section has-background-light">
     <div class="container">
       <p class="subtitle">
-        This app builds a very basic DeploymentConfig for OpenShift, based on your inputs. <strong>Runs entirely in your browser - your data is safe here.</strong> :-)
+        This app builds a very basic DeploymentConfig for OpenShift, based on your inputs. <strong>Runs entirely in your
+          browser - your data is safe here.</strong> :-)
       </p>
       <div class="notification is-warning">
-        <p>Thanks for trying out this <strong>very</strong> early prototype! Please <a href="https://github.com/monodot/k8s-yaml-builder/issues/new">submit any issues on GitHub</a>.</p>
+        <p>Thanks for trying out this <strong>very</strong> early prototype! Please <a
+            href="https://github.com/monodot/k8s-yaml-builder/issues/new">submit any issues on GitHub</a>.</p>
       </div>
     </div>
   </section>
@@ -67,34 +76,35 @@
             <div class="field">
               <label for="dc-metadata-name" class="label">Deployment Config Name</label>
               <div class="control">
-                <input class="input" type="text" id="dc-metadata-name" value="my-app"/>
+                <input class="input" type="text" id="dc-metadata-name" value="my-app" />
               </div>
             </div>
             <div class="field">
               <label for="dc-spec-container-name" class="label">Container Name</label>
               <div class="control">
-                <input class="input" type="text" id="dc-spec-container-name" value="my-container"/>
+                <input class="input" type="text" id="dc-spec-container-name" value="my-container" />
               </div>
             </div>
             <div class="field">
               <label for="dc-spec-replicas" class="label">Replicas</label>
               <div class="control">
-                <input class="input" type="text" id="dc-spec-replicas" value="1"/>
+                <input class="input" type="text" id="dc-spec-replicas" value="1" />
               </div>
             </div>
-            
+
             <h3 class="is-size-4">Image stream</h3>
 
             <div class="field">
-              <label for="imagestream-name" class="label">Image stream name and tag (use format: <code>imagename:tag</code>)</label>
+              <label for="imagestream-name" class="label">Image stream name and tag (use format:
+                <code>imagename:tag</code>)</label>
               <div class="control">
-                <input type="text" id="imagestream-name" class="input"/>
+                <input type="text" id="imagestream-name" class="input" />
               </div>
             </div>
             <div class="field">
               <label for="imagestream-namespace" class="label">Namespace where the image stream is located</label>
               <div class="control">
-                <input type="text" id="imagestream-namespace" class="input"/>
+                <input type="text" id="imagestream-namespace" class="input" />
               </div>
             </div>
             <div class="field">
@@ -111,23 +121,27 @@
             <div class="field">
               <div class="control">
                 <label class="checkbox">
-                  <input type="checkbox" id="dc-spec-template-container-env-k8sns"/>
+                  <input type="checkbox" id="dc-spec-template-container-env-k8sns" />
                   Define an environment variable containing the Kubernetes namespace
                 </label>
               </div>
             </div>
 
-            <label for="dc-spec-template-spec-container-env-literal-name" class="label">Add an environment variable from a literal:</label>
+            <label for="dc-spec-template-spec-container-env-literal-name" class="label">Add an environment variable from
+              a literal:</label>
             <div class="field has-addons">
               <p class="control is-expanded">
-                <input class="input" type="text" id="dc-spec-template-spec-container-env-literal-name" placeholder="Env Var name">
+                <input class="input" type="text" id="dc-spec-template-spec-container-env-literal-name"
+                  placeholder="Env Var name">
               </p>
               <p class="control is-expanded">
-                <input class="input" type="text" id="dc-spec-template-spec-container-env-literal-value" placeholder="Env Var value">
+                <input class="input" type="text" id="dc-spec-template-spec-container-env-literal-value"
+                  placeholder="Env Var value">
               </p>
-            </div> 
+            </div>
 
-            <label for="dc-spec-template-spec-container-env-ref-name" class="label">Add an environment variable from a key in a ConfigMap or Secret:</label>
+            <label for="dc-spec-template-spec-container-env-ref-name" class="label">Add an environment variable from a
+              key in a ConfigMap or Secret:</label>
             <div class="field has-addons">
               <p class="control is-expanded">
                 <input class="input" type="text" id="dc-spec-template-spec-container-env-ref-name" placeholder="Name">
@@ -141,31 +155,34 @@
                 </span>
               </p>
               <p class="control is-expanded">
-                <input class="input" type="text" id="dc-spec-template-spec-container-env-ref-refname" placeholder="ConfigMap/Secret name">
+                <input class="input" type="text" id="dc-spec-template-spec-container-env-ref-refname"
+                  placeholder="ConfigMap/Secret name">
               </p>
               <p class="control is-expanded">
-                <input class="input" type="text" id="dc-spec-template-spec-container-env-ref-refkey" placeholder="ConfigMap/Secret key">
+                <input class="input" type="text" id="dc-spec-template-spec-container-env-ref-refkey"
+                  placeholder="ConfigMap/Secret key">
               </p>
-            </div>            
+            </div>
 
             <h3 class="is-size-4">Persistent Volume mount</h3>
 
             <div class="field">
               <label for="dc-spec-template-spec-volume-pvc-claimname" class="label">Persistent Volume Claim name</label>
               <div class="control">
-                <input type="text" id="dc-spec-template-spec-volume-pvc-claimname" class="input"/>
+                <input type="text" id="dc-spec-template-spec-volume-pvc-claimname" class="input" />
               </div>
             </div>
             <div class="field">
-              <label for="dc-spec-template-spec-volume-pvc-volname" class="label">Name to give the volume in this DeploymentConfig</label>
+              <label for="dc-spec-template-spec-volume-pvc-volname" class="label">Name to give the volume in this
+                DeploymentConfig</label>
               <div class="control">
-                <input type="text" id="dc-spec-template-spec-volume-pvc-volname" class="input"/>
+                <input type="text" id="dc-spec-template-spec-volume-pvc-volname" class="input" />
               </div>
             </div>
             <div class="field">
               <label for="dc-spec-template-spec-volume-pvc-mountpath" class="label">Mount location</label>
               <div class="control">
-                <input type="text" id="dc-spec-template-spec-volume-pvc-mountpath" class="input"/>
+                <input type="text" id="dc-spec-template-spec-volume-pvc-mountpath" class="input" />
               </div>
             </div>
 
@@ -174,27 +191,28 @@
             <div class="field">
               <label for="dc-spec-template-spec-volume-cm-cmname" class="label">ConfigMap name</label>
               <div class="control">
-                <input type="text" id="dc-spec-template-spec-volume-cm-cmname" class="input"/>
+                <input type="text" id="dc-spec-template-spec-volume-cm-cmname" class="input" />
               </div>
             </div>
             <div class="field">
-              <label for="dc-spec-template-spec-volume-cm-volname" class="label">Name to give the ConfigMap volume in this DeploymentConfig</label>
+              <label for="dc-spec-template-spec-volume-cm-volname" class="label">Name to give the ConfigMap volume in
+                this DeploymentConfig</label>
               <div class="control">
-                <input type="text" id="dc-spec-template-spec-volume-cm-volname" class="input"/>
+                <input type="text" id="dc-spec-template-spec-volume-cm-volname" class="input" />
               </div>
             </div>
             <div class="field">
               <label for="dc-spec-template-spec-volume-cm-mountpath" class="label">Mount location</label>
               <div class="control">
-                <input type="text" id="dc-spec-template-spec-volume-cm-mountpath" class="input"/>
+                <input type="text" id="dc-spec-template-spec-volume-cm-mountpath" class="input" />
               </div>
-            </div>            
-          
+            </div>
+
             <h3 class="is-size-4">Triggers</h3>
             <div class="field">
               <div class="control">
                 <label class="checkbox">
-                  <input type="checkbox" id="dc-spec-triggers-configchange"/>
+                  <input type="checkbox" id="dc-spec-triggers-configchange" />
                   Trigger deployment when the deployment configuration changes
                 </label>
               </div>
@@ -204,7 +222,7 @@
             <div class="field">
               <div class="control">
                 <label class="checkbox">
-                  <input type="checkbox" id="dc-spec-container-readinessprobe" checked/>
+                  <input type="checkbox" id="dc-spec-container-readinessprobe" checked />
                   Include example readiness probe
                 </label>
               </div>
@@ -212,20 +230,21 @@
             <div class="field">
               <div class="control">
                 <label class="checkbox">
-                  <input type="checkbox" id="dc-spec-container-livenessprobe" checked/>
+                  <input type="checkbox" id="dc-spec-container-livenessprobe" checked />
                   Include example liveness probe
                 </label>
               </div>
             </div>
-  
+
             <h3 class="is-size-4">🔡 Labels</h3>
             <div class="field">
-              <label for="dc-metadata-labels-app" class="label">Application name (used to group related resources on the OpenShift overview page)</label>
+              <label for="dc-metadata-labels-app" class="label">Application name (used to group related resources on the
+                OpenShift overview page)</label>
               <div class="control">
-                <input type="text" id="dc-metadata-labels-app" value="my-application" class="input"/>
+                <input type="text" id="dc-metadata-labels-app" value="my-application" class="input" />
               </div>
             </div>
-  
+
             <div class="field is-grouped">
               <div class="control">
                 <button type="submit" class="button is-link">Generate YAML</button>
@@ -236,12 +255,13 @@
           </form>
         </div>
         <div class="column">
+          <button type="button" value="save" id="save"> Save to File</button>
+
           <div class="sticky">
             <label for="yaml" class="label">Generated YAML</label>
             <div class="control" style="position: sticky; top: 0">
-              <textarea id="yaml" rows="20"
-                        class="textarea is-family-code is-size-7" 
-                        aria-live="polite" readonly></textarea>
+              <textarea id="yaml" rows="20" class="textarea is-family-code is-size-7" aria-live="polite"
+                readonly></textarea>
             </div>
           </div>
         </div>
@@ -253,16 +273,22 @@
     <div class="container">
       <div class="content is-size-4">
         <h2 class="has-text-centered">Stop wasting your life writing YAAAAAAAAAML!</h2>
-        <p class="is-size-3">Use this <strong>Kubernetes YAML Builder</strong> to generate fresh, delicious, syntactically-valid YAML 🍞 which you can apply to your <a href="https://kubernetes.io/">Kubernetes</a> or <a href="https://docs.openshift.com/">OpenShift</a> cluster.</p>
+        <p class="is-size-3">Use this <strong>Kubernetes YAML Builder</strong> to generate fresh, delicious,
+          syntactically-valid YAML 🍞 which you can apply to your <a href="https://kubernetes.io/">Kubernetes</a> or <a
+            href="https://docs.openshift.com/">OpenShift</a> cluster.</p>
         <p>How does it work?</p>
         <ol>
           <li>Use this web UI to enter the details of your new Kubernetes object.</li>
           <li>Click the <strong>Generate YAML</strong> button to generate the YAML.</li>
           <li>Copy the YAML to your favourite text editor and save to a file.</li>
-          <li>Apply the YAML to your cluster using <code>kubectl create -f ...</code> or <code>oc create -f ..</code>🌠</li>
+          <li>Apply the YAML to your cluster using <code>kubectl create -f ...</code> or <code>oc create -f ..</code>🌠
+          </li>
           <li>Take the rest of the day off.</li>
         </ol>
-        <p>Right now, the YAML builder only supports the creation of basic OpenShift <a href="https://docs.openshift.com/container-platform/3.11/dev_guide/deployments/how_deployments_work.html">DeploymentConfig</a> and BuildConfig objects</a>, but I'll be adding support for more OpenShift and Kubernetes objects in the future, such as Services and Routes.</p>
+        <p>Right now, the YAML builder only supports the creation of basic OpenShift <a
+            href="https://docs.openshift.com/container-platform/3.11/dev_guide/deployments/how_deployments_work.html">DeploymentConfig</a>
+          and BuildConfig objects</a>, but I'll be adding support for more OpenShift and Kubernetes objects in the
+          future, such as Services and Routes.</p>
       </div>
     </div>
   </section>
@@ -270,13 +296,14 @@
   <footer class="footer">
     <div class="content has-text-centered">
       <p>
-        <strong>YAML Builder for Kubernetes</strong> by <a href="https://tomd.xyz">Tom D</a>. The <a href="https://github.com/monodot/k8s-yaml-builder">source code</a> is licensed under
+        <strong>YAML Builder for Kubernetes</strong> by <a href="https://tomd.xyz">Tom D</a>. The <a
+          href="https://github.com/monodot/k8s-yaml-builder">source code</a> is licensed under
         <a href="https://opensource.org/licenses/GPL-3.0">GNU GPLv3</a>. Made with 💙 in London.
       </p>
     </div>
   </footer>
 
-	<script>
+  <script>
     // Variables
 
     var form = document.querySelector('#app');
@@ -295,7 +322,7 @@
 
     var defaultReadinessProbe = document.querySelector('#dc-spec-container-readinessprobe');
     var defaultLivenessProbe = document.querySelector('#dc-spec-container-livenessprobe');
-    
+
     var envLiteralName = document.querySelector('#dc-spec-template-spec-container-env-literal-name');
     var envLiteralValue = document.querySelector('#dc-spec-template-spec-container-env-literal-value');
 
@@ -312,7 +339,7 @@
     var volCMCMName = document.querySelector('#dc-spec-template-spec-volume-cm-cmname');
     var volCMMountPath = document.querySelector('#dc-spec-template-spec-volume-cm-mountpath');
 
-    var submitHandler = function(event) {
+    var submitHandler = function (event) {
       event.preventDefault();
 
       var dcObj = {
@@ -336,30 +363,26 @@
               }
             },
             'spec': {
-              'containers': [
-                {
-                  'name': containerName.value,
-                  'ports': [
-                    {
-                      'containerPort': 8080,
-                      'protocol': 'TCP',
-                      'name': 'myport'
-                    }
-                  ],
-                  'env': [ ],
-                  'resources': {
-                    'requests': {
-                      'cpu': '0.2',
-                      'memory': '256Mi'
-                    },
-                    'limits': {
-                      'cpu': '1',
-                      'memory': '1Gi'
-                    }
+              'containers': [{
+                'name': containerName.value,
+                'ports': [{
+                  'containerPort': 8080,
+                  'protocol': 'TCP',
+                  'name': 'myport'
+                }],
+                'env': [],
+                'resources': {
+                  'requests': {
+                    'cpu': '0.2',
+                    'memory': '256Mi'
                   },
-                  'volumeMounts': []
-                }
-              ],
+                  'limits': {
+                    'cpu': '1',
+                    'memory': '1Gi'
+                  }
+                },
+                'volumeMounts': []
+              }],
               'volumes': []
             }
           },
@@ -387,12 +410,14 @@
       }
 
       if (triggerConfigChange.checked) {
-        dcObj.spec.triggers.push({ 'type': 'ConfigChange' });
+        dcObj.spec.triggers.push({
+          'type': 'ConfigChange'
+        });
       }
 
       // Image Stream
       if (imageStreamName.value.length > 0) {
-        imageStreamTrigger = { 
+        imageStreamTrigger = {
           'type': 'ImageChange',
           'imageChangeParams': {
             'containerNames': [
@@ -436,8 +461,8 @@
         })
       };
 
-      if (envRefName.value.length > 0 && envRefRefName.value.length > 0 
-          && envRefRefKey.value.length > 0) {
+      if (envRefName.value.length > 0 && envRefRefName.value.length > 0 &&
+        envRefRefKey.value.length > 0) {
         var refType;
         if (envRefType.value == 'secret') {
           refType = 'secretKeyRef';
@@ -456,7 +481,7 @@
         })
       }
 
-      
+
 
       // PV mounts
       if (volPvcVolName.value.length > 0 && volPvcClaimName.value.length > 0) {
@@ -495,6 +520,7 @@
       }
 
       yaml.value = jsyaml.dump(dcObj);
+
     }
 
     form.addEventListener('submit', submitHandler, false);
@@ -510,7 +536,7 @@
       if ($navbarBurgers.length > 0) {
 
         // Add a click event on each of them
-        $navbarBurgers.forEach( el => {
+        $navbarBurgers.forEach(el => {
           el.addEventListener('click', () => {
 
             // Get the target from the "data-target" attribute
@@ -524,11 +550,41 @@
           });
         });
       }
-    });    
+    });
 
     // -----------------------
     // End navbar BURGER setup
-	</script>
+  </script>
+  <script>
+    function saveTextAsFile() {
+      var textToWrite = document.getElementById('yaml').value;
+      var textFileAsBlob = new Blob([textToWrite], {
+        type: 'text/plain'
+      });
+      var fileNameToSaveAs = "ecc.yaml";
 
+      var downloadLink = document.createElement("a");
+      downloadLink.download = fileNameToSaveAs;
+      downloadLink.innerHTML = "Download File";
+      if (window.webkitURL != null) {
+        // Chrome allows the link to be clicked
+        // without actually adding it to the DOM.
+        downloadLink.href = window.webkitURL.createObjectURL(textFileAsBlob);
+      } else {
+        // Firefox requires the link to be added to the DOM
+        // before it can be clicked.
+        downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
+        downloadLink.onclick = destroyClickedElement;
+        downloadLink.style.display = "none";
+        document.body.appendChild(downloadLink);
+      }
+
+      downloadLink.click();
+    }
+
+    var button = document.getElementById('save');
+    button.addEventListener('click', saveTextAsFile);
+  </script>
 </body>
+
 </html>
